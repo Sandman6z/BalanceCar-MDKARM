@@ -1,12 +1,12 @@
 /**********************************************************************
-版权所有：	喵呜创新科技，2017.
-官		网：	http://www.miaowlabs.com
-淘		宝：	https://shop275516297.taobao.com/
-文 件 名: 	I2C.c
-作    者:   喵呜实验室
-版		本:   3.00
-完成日期:   2017.03.01
-概		要: 	
+Author:     1+1>2 Team
+技术论坛：
+购买链接：
+File:  	I2C.c
+@Copyright：by 1+1>2
+Version：V1.0
+Date：2020
+@brief：2020 	
 
 
 ***********************************************************************/
@@ -14,14 +14,14 @@
 #include "I2C2.h"
 
 
-#define SCL_H         GPIOA->BSRR = GPIO_Pin_0 /* GPIO_SetBits(GPIOB , GPIO_Pin_10)   */
-#define SCL_L         GPIOA->BRR  = GPIO_Pin_0 /* GPIO_ResetBits(GPIOB , GPIO_Pin_10) */
+#define SCL_H         GPIOB->BSRR = GPIO_Pin_10 /* GPIO_SetBits(GPIOB , GPIO_Pin_10)   */
+#define SCL_L         GPIOB->BRR  = GPIO_Pin_10 /* GPIO_ResetBits(GPIOB , GPIO_Pin_10) */
 
-#define SDA_H         GPIOA->BSRR = GPIO_Pin_1 /* GPIO_SetBits(GPIOB , GPIO_Pin_11)   */
-#define SDA_L         GPIOA->BRR  = GPIO_Pin_1 /* GPIO_ResetBits(GPIOB , GPIO_Pin_11) */
+#define SDA_H         GPIOB->BSRR = GPIO_Pin_11 /* GPIO_SetBits(GPIOB , GPIO_Pin_11)   */
+#define SDA_L         GPIOB->BRR  = GPIO_Pin_11 /* GPIO_ResetBits(GPIOB , GPIO_Pin_11) */
 
-#define SCL_read      GPIOA->IDR  & GPIO_Pin_0 /* GPIO_ReadInputDataBit(GPIOB , GPIO_Pin_10) */
-#define SDA_read      GPIOA->IDR  & GPIO_Pin_1 /* GPIO_ReadInputDataBit(GPIOB , GPIO_Pin_11) */
+#define SCL_read      GPIOB->IDR  & GPIO_Pin_10 /* GPIO_ReadInputDataBit(GPIOB , GPIO_Pin_10) */
+#define SDA_read      GPIOB->IDR  & GPIO_Pin_11 /* GPIO_ReadInputDataBit(GPIOB , GPIO_Pin_11) */
 
 
 static void I2C2_delay(void)
@@ -143,10 +143,10 @@ void i2c2Init(void)
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA , ENABLE);    
 
-	gpio.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1; //KKDD// 8,9 ->10,11
-	gpio.GPIO_Speed = GPIO_Speed_2MHz;
+	gpio.GPIO_Pin = GPIO_Pin_10 | GPIO_Pin_11; //KKDD// 8,9 ->10,11
+	gpio.GPIO_Speed = GPIO_Speed_50MHz;
 	gpio.GPIO_Mode = GPIO_Mode_Out_OD;
-	GPIO_Init(GPIOA, &gpio);
+	GPIO_Init(GPIOB, &gpio);
 
 }
 

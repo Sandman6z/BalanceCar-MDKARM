@@ -1,12 +1,12 @@
 /**********************************************************************
-版权所有：	喵呜创新科技，2017.
-官		网：	http://www.miaowlabs.com
-淘		宝：	https://miaowlabs.taobao.com/
-文 件 名: 	main.c
-作    者:   喵呜实验室
-版		本:   3.00
-完成日期:   2017.03.01
-概		要: 	
+Author:     1+1>2 Team
+技术论坛：
+购买链接：
+File:  	main.c
+@Copyright：by 1+1>2
+Version：V1.0
+Date：2020
+@brief：2020 	
 
 ***********************************************************************/
 #include "stm32f10x.h"
@@ -43,6 +43,7 @@ void SecTask()
 	if(StatusFlag)ResponseStatus();
 	
 	LEDToggle();
+	ShowHomePage(); 
 /*KKDD HC05 test	
 	GPIO_SetBits(GPIOA,GPIO_Pin_1);					//KEY置高,进入AT模式
 	delay_ms(10);
@@ -72,7 +73,7 @@ int main(void)
 	
 	g_iGravity_Offset = -1;
 	Steer(0,0);
-	//KKDD// ShowHomePageInit();
+	ShowHomePageInit();
 	
 	while (1)
 	{
@@ -86,6 +87,7 @@ int main(void)
 			delay_ms(5);
 			//DebugService();//KKDD 注释虚拟示波器调试模式			
 			Parse(Uart1Buffer);////KKDD UART3->UART1
+			//ShowHomePage();
 			
 		}			
 /*KKDD注释超声避障和红外追踪模式
@@ -109,6 +111,6 @@ int main(void)
 }
 
 
-/******************* (C) COPYRIGHT 2016 MiaowLabs Team *****END OF FILE************/
+/******************* (C) COPYRIGHT 1+1>2 Team *****END OF FILE************/
 
 

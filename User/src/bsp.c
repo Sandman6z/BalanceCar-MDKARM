@@ -1,12 +1,12 @@
 /**********************************************************************
-版权所有：	喵呜创新科技，2017.
-官		网：	http://www.miaowlabs.com
-淘		宝：	https://miaowlabs.taobao.com/
-文 件 名: 	bsp.c
-作    者:   喵呜实验室
-版		本:   3.00
-完成日期:   2017.03.01
-概		要: 	
+Author:     1+1>2 Team
+技术论坛：
+购买链接：
+File:  	bsp.c
+@Copyright：by 1+1>2
+Version：V1.0
+Date：2020
+@brief：2020 	
 
 
 ***********************************************************************/
@@ -22,6 +22,7 @@
 #include "usart.h"
 #include "motor.h"
 #include "I2C.h"
+#include "I2C2.h"
 #include "ultrasonic.h"
 #include "infrare.h"
 #include "hc05.h"
@@ -111,10 +112,10 @@ void BspInit(void)
 	TIM4_Encoder_Init();	//TIM4正交解码初始化-用于测速
 	
 	i2cInit();	 			//I2C初始化
-	
+	i2c2Init();
 	//KKDD// InfraredIOInit();		//红外IO口初始化
 
-	//KKDD// OLED_Init();			//OLED初始化 KKDD //
+	OLED_Init();			//OLED初始化 KKDD //
 	MPU6050_Init();		    //OLED初始化
 	
 	LEDInit();				//指示灯初始化

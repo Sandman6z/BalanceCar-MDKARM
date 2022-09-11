@@ -1,14 +1,12 @@
 /**********************************************************************
-版权所有：	  喵呜实验室MiaowLabs，2017.
-官		网：	http://www.miaowlabs.com
-淘		宝：	https://miaowlabs.taobao.com/
-文 件 名: 	  control.c
-作    者:   喵呜实验室MiaowLabs
-版		本:   3.00
-完成日期:   2017.03.01
-概		要: 	
-
-
+Author:     1+1>2 Team
+技术论坛：
+购买链接：
+File:  	main.c
+@Copyright：by 1+1>2
+Version：V1.0
+Date：2020
+@brief：2020 
 ***********************************************************************/
 #include "math.h"
 #include "stdio.h"
@@ -56,8 +54,8 @@ float g_fCarSpeedOld;
 float g_fCarPosition;
 
 /*-----角度环和速度环PID控制参数-----*/
-PID_t g_tCarAnglePID={19, 0, 18};//KKDD//{17.5, 0, 21} {18.5, 0, 24} {20, 0, 18}  {20.1, 0, 42.2};	
-PID_t g_tCarSpeedPID={11.11, 0.11, 0};	//KKDD// {8.3, 0.54, 0};5.0, 0.4, 0
+PID_t g_tCarAnglePID={30.24, 0, 10.9};//KKDD//{19, 0, 18}
+PID_t g_tCarSpeedPID={21.26, 0.11, 0};	//KKDD// {11.11, 0.11, 0}
 
 /******蓝牙控制参数******/
 float g_fBluetoothSpeed;
@@ -158,8 +156,8 @@ int RSpeedInnerControl(int nPulse,int nTarget) //KKDD ADD
 ** 输　入:   
 ** 输　出:   
 ** 全局变量: 
-** 作　者:   喵呜实验室MiaowLabs
-** 淘  宝：  https://miaowlabs.taobao.com/
+** Author: 1+1>2
+** 购买链接：
 ** 日　期:   2014年08月01日
 ***************************************************************/
 void CarUpstandInit(void)
@@ -192,7 +190,7 @@ void CarUpstandInit(void)
 ** 输　入:   
 ** 输　出:   
 ** 全局变量: 
-** 作　者:   喵呜实验室MiaowLabs
+** Author: 1+1>2
 ** 日　期:   2017年4月26日
 ***************************************************************/
 
@@ -227,7 +225,7 @@ void AbnormalSpinDetect(short leftSpeed,short rightSpeed)
 ** 输　入:   
 ** 输　出:   
 ** 全局变量: 
-** 作　者:   喵呜实验室MiaowLabs
+** Author: 1+1>2
 ** 日　期:   2017年4月26日
 ***************************************************************/
 void LandingDetect(void)
@@ -273,7 +271,7 @@ void LandingDetect(void)
 ** 输　入:   
 ** 输　出:   
 ** 全局变量: 
-** 作　者:   喵呜实验室MiaowLabs
+** Author: 1+1>2
 ** 日　期:   2017年4月26日
 ***************************************************************/
 void MotorManage(void)
@@ -309,8 +307,8 @@ void MotorManage(void)
 ** 输　入:   
 ** 输　出:   
 ** 全局变量: 
-** 作　者:   喵呜实验室MiaowLabs
-** 淘  宝：  https://miaowlabs.taobao.com/
+** Author: 1+1>2
+** 购买链接：
 ** 日　期:   2018年08月27日
 ***************************************************************/
 void SetMotorVoltageAndDirection(int i16LeftVoltage,int i16RightVoltage)
@@ -369,8 +367,8 @@ void SetMotorVoltageAndDirection(int i16LeftVoltage,int i16RightVoltage)
 ** 输　入:   
 ** 输　出:   
 ** 全局变量: 
-** 作　者:   喵呜实验室MiaowLabs
-** 淘  宝：  https://miaowlabs.taobao.com/ 
+** Author: 1+1>2
+** 购买链接： 
 ** 日　期:   2014年08月01日
 ***************************************************************/
 void MotorOutput(void)
@@ -417,16 +415,12 @@ void GetMotorPulse(void)  //采集电机速度脉冲
 }
 
 /***************************************************************
-** 作　  者: MiaowLabs Team
-** 官    网：http://www.miaowlabs.com
-** 淘    宝：https://miaowlabs.taobao.com/
-** 日　  期: 2015年11月29日
 ** 函数名称: AngleCalculate
 ** 功能描述: 角度环计算函数           
 ** 输　  入:   
 ** 输　  出:   
 ** 备    注: 
-********************喵呜实验室MiaowLabs版权所有**************************
+********************Author: 1+1>2版权所有**************************
 ***************************************************************/
 void AngleCalculate(void)
 {
@@ -444,16 +438,14 @@ void AngleCalculate(void)
 	g_fCarAngle = 0.98 * (g_fCarAngle + g_fGyroAngleSpeed * 0.005) + 0.02 *	g_fGravityAngle;
 }
 /***************************************************************
-** 作　  者: 喵呜实验室MiaowLabs
-** 官    网：http://www.miaowlabs.com
-** 淘    宝：https://miaowlabs.taobao.com/
+** Author: 1+1>2
 ** 日　  期: 2018年08月27日
 ** 函数名称: AngleControl
 ** 功能描述: 角度环控制函数           
 ** 输　  入:   
 ** 输　  出:   
 ** 备    注: 
-********************喵呜实验室MiaowLabs版权所有**************************
+********************Author: 1+1>2版权所有**************************
 ***************************************************************/
 void AngleControl(void)	 
 {
@@ -469,8 +461,8 @@ void AngleControl(void)
 ** 输　入:   
 ** 输　出:   
 ** 全局变量: 
-** 作　者:   喵呜实验室MiaowLabs
-** 淘  宝：  https://miaowlabs.taobao.com/
+** Author: 1+1>2
+** 购买链接：
 ** 日　期:   2014年08月01日
 ***************************************************************/
 
@@ -508,8 +500,8 @@ void SpeedControl(void)
 ** 输　入:   
 ** 输　出:   
 ** 全局变量: 
-** 作　者:   喵呜实验室MiaowLabs
-** 淘  宝：  https://miaowlabs.taobao.com/
+** Author: 1+1>2
+** 购买链接：
 ** 日　期:   2014年08月01日
 ***************************************************************/
 void SpeedControlOutput(void)
@@ -526,8 +518,8 @@ void SpeedControlOutput(void)
 ** 输　入:   
 ** 输　出:   
 ** 全局变量: 
-** 作　者:   喵呜实验室MiaowLabs
-** 淘  宝：  https://miaowlabs.taobao.com/
+** Author: 1+1>2
+** 购买链接：
 ** 日　期:   2014年08月01日
 ***************************************************************/
 float Scale(float input, float inputMin, float inputMax, float outputMin, float outputMax) { 
@@ -549,8 +541,8 @@ float Scale(float input, float inputMin, float inputMax, float outputMin, float 
 ** 输　入:   
 ** 输　出:   
 ** 全局变量: 
-** 作　者:   喵呜实验室MiaowLabs
-** 淘  宝：  https://miaowlabs.taobao.com/
+** Author: 1+1>2
+** 购买链接：
 ** 日　期:   2014年08月01日
 ***************************************************************/
 void Steer(float direct, float speed)
@@ -568,16 +560,13 @@ void Steer(float direct, float speed)
 }
 
 /***************************************************************
-** 作　  者: Songyibiao
-** 官    网：http://www.miaowlabs.com
-** 淘    宝：https://miaowlabs.taobao.com/
 ** 日　  期: 20160415
 ** 函数名称: UltraControl
 ** 功能描述: 超声波跟随           
 ** 输　  入:   
 ** 输　  出:   
 ** 备    注: 
-********************喵呜实验室MiaowLabs版权所有**************************/
+********************Author: 1+1>2版权所有**************************/
 void UltraControl(int mode)
 {
 	if(mode == 0)
@@ -609,16 +598,12 @@ void UltraControl(int mode)
 }
 
 /***************************************************************
-** 作　  者: MiaowLabs Team
-** 官    网：http://www.miaowlabs.com
-** 淘    宝：https://miaowlabs.taobao.com/
-** 日　  期: 20160415
 ** 函数名称: TailingControl
 ** 功能描述: 红外寻迹           
 ** 输　  入:   
 ** 输　  出:   
 ** 备    注: 
-********************喵呜实验室MiaowLabs版权所有**************************
+********************Author: 1+1>2版权所有**************************
 ***************************************************************/
 void TailingControl(void)
 {

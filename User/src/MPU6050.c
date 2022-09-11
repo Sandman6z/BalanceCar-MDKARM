@@ -1,17 +1,17 @@
 /**********************************************************************
-版权所有：	喵呜创新科技，2017.
-官		网：	http://www.miaowlabs.com
-淘		宝：	https://miaowlabs.taobao.com/
-文 件 名: 	MPU6050.c
-作    者:   喵呜实验室
-版		本:   3.00
-完成日期:   2017.03.01
-概		要: 	
+Author:     1+1>2 Team
+技术论坛：
+购买链接：
+File:  	MPU6050.c
+@Copyright：by 1+1>2
+Version：V1.0
+Date：2020
+@brief：2020 	
 
 
 ***********************************************************************/
 
-#include "I2C.h"
+#include "I2C2.h"
 
 /*
 * 定义MPU6050内部地址
@@ -46,11 +46,11 @@ short g_fGyro_x,g_fAccel_y,g_fAccel_z;
 void MPU6050_Init(void)
 {
 	unsigned char buff[5] = {0x00,0x07,0x04,0x18,0x01};
-	i2cwrite(MPU6050_ADDR,PWR_MGMT_1, 1,&buff[0]);   //解除休眠状态
-	i2cwrite(MPU6050_ADDR,SMPLRT_DIV, 1,&buff[1])  ; //陀螺仪125hz
-	i2cwrite(MPU6050_ADDR,CONFIG, 1,&buff[2])      ; //Accelerometer:21hz 8.5ms ; Gyroscope:20hz 8.3ms
-	i2cwrite(MPU6050_ADDR,GYRO_CONFIG, 1,&buff[3]) ; //±2000°/s  
-	i2cwrite(MPU6050_ADDR,ACCEL_CONFIG, 1,&buff[4]); //±2g
+	i2c2write(MPU6050_ADDR,PWR_MGMT_1, 1,&buff[0]);   //解除休眠状态
+	i2c2write(MPU6050_ADDR,SMPLRT_DIV, 1,&buff[1])  ; //陀螺仪125hz
+	i2c2write(MPU6050_ADDR,CONFIG, 1,&buff[2])      ; //Accelerometer:21hz 8.5ms ; Gyroscope:20hz 8.3ms
+	i2c2write(MPU6050_ADDR,GYRO_CONFIG, 1,&buff[3]) ; //±2000°/s  
+	i2c2write(MPU6050_ADDR,ACCEL_CONFIG, 1,&buff[4]); //±2g
 }
 
 /*
@@ -60,7 +60,7 @@ short DataSynthesis(unsigned char REG_Address)
 {
 	unsigned char  uByte[2]; 
 
-	i2cread(MPU6050_ADDR,REG_Address,2,uByte)  ;
+	i2c2read(MPU6050_ADDR,REG_Address,2,uByte)  ;
 
 	return ((uByte[0] << 8) + uByte[1]);   /*返回合成数据*/
 }
