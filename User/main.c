@@ -1,14 +1,12 @@
 /**********************************************************************
 Author:     1+1>2 Team
-技术论坛：
-购买链接：
 File:  	main.c
 @Copyright：by 1+1>2
 Version：V1.0
 Date：2020
 @brief：2020 	
-
 ***********************************************************************/
+
 #include "stm32f10x.h"
 #include "usart.h"
 #include "SysTick.h"
@@ -44,6 +42,7 @@ void SecTask()
 	
 	LEDToggle();
 	ShowHomePage(); 
+	
 /*KKDD HC05 test	
 	GPIO_SetBits(GPIOA,GPIO_Pin_1);					//KEY置高,进入AT模式
 	delay_ms(10);
@@ -89,7 +88,8 @@ int main(void)
 			Parse(Uart1Buffer);////KKDD UART3->UART1
 			//ShowHomePage();
 			
-		}			
+		}		
+		
 /*KKDD注释超声避障和红外追踪模式
 		if(SoftTimer[2] == 0)
 		{
@@ -112,5 +112,3 @@ int main(void)
 
 
 /******************* (C) COPYRIGHT 1+1>2 Team *****END OF FILE************/
-
-
